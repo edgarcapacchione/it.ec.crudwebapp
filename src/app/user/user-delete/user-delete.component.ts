@@ -10,6 +10,7 @@ export class UserDeleteComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }
