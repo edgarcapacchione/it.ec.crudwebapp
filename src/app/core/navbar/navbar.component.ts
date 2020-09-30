@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Paths } from 'src/app/shared/constants';
+import { UtilsService } from 'src/app/shared/services/utils.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public utils: UtilsService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }

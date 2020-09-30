@@ -1,4 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { SharedModule } from '../shared/shared.module';
 
 import { UserCreateComponent } from './user-create/user-create.component';
 import { UserDeleteComponent } from './user-delete/user-delete.component';
@@ -16,7 +18,8 @@ import { UserService } from './user.service';
     UserDetailComponent
   ],
   imports: [
-    UserRoutingModule
+    UserRoutingModule,
+    SharedModule
   ],
   providers: [
     UserService

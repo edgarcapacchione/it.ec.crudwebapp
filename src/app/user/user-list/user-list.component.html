@@ -1,3 +1,29 @@
-<h1 class="mt-5">Sticky footer</h1>
-<p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS.</p>
-<p>Use <a href="../sticky-footer-navbar">the sticky footer with a fixed navbar</a> if need be, too.</p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col" sortable="id" (sort)="onSort($event)">ID</th>
+      <th scope="col" sortable="name" (sort)="onSort($event)">Name</th>
+      <th scope="col" sortable="surname" (sort)="onSort($event)">Surname</th>
+      <th scope="col" sortable="email" (sort)="onSort($event)">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let u of userList | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+      <th scope="row">{{ u.id }}</th>
+      <td>{{ u.name }}</td>
+      <td>{{ u.surname }}</td>
+      <td>{{ u.email }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="d-flex justify-content-between p-2">
+  <ngb-pagination [collectionSize]="utils.notEmpty(userList) ? userList.length : 0" 
+    [(page)]="page" [pageSize]="pageSize">
+  </ngb-pagination>
+
+  <select class="custom-select" style="width: auto" [(ngModel)]="pageSize">
+    <option [ngValue]="5">5 items per page</option>
+    <option [ngValue]="10">10 items per page</option>
+  </select>
+</div>

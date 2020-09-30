@@ -1,1 +1,9 @@
-<p>user-detail works!</p>
+<form class="form-inline my-2 my-lg-0">
+  <input class="form-control mr-sm-2" type="number" placeholder="Search by id" 
+    name="idSearched" aria-label="Search" [(ngModel)]="idSearched">
+  <button class="btn btn-outline-success my-2 my-sm-0" (click)="searchUser(idSearched)" type="submit">Search</button>
+</form>
+
+<div *ngIf="utils.notEmpty(userDetail)">
+  {{ userDetail.name }} {{ userDetail.surname }}
+</div>
